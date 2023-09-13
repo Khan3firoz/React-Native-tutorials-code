@@ -1,20 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { View,StatusBar, Button } from "react-native";
+import React,{useState} from "react"
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+export default App=()=>{
+  const [isHideStatusBar, setIsHideStatusBar] = useState(false)
+  return(
+    <View style={{padding:60}}>
+      <Button title="Hide status Bar"
+        onPress={()=>setIsHideStatusBar(!isHideStatusBar)}
+      />
+      <StatusBar backgroundColor="lightgreen" barStyle="dark-content" hidden={isHideStatusBar}/>
     </View>
-  );
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
